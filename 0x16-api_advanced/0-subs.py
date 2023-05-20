@@ -3,7 +3,7 @@
 """
 Created on Sat 20 05 2023
 
-@author: Moses 
+@author: Moses
 """
 from json import loads
 from requests import get
