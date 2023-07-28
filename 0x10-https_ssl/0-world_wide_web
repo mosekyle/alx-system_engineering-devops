@@ -1,0 +1,24 @@
+#!/bin/bash
+
+n=$1
+subdomain=$2
+
+function display_info {
+    subdomain=$1
+    record_type=$2
+    destination=$3
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+}
+
+if [ -z "$subdomain" ]; then
+    # If no subdomain provided, display information for default subdomains
+    display_info "www" "$(dig +short $domain | awk 'NR==1{print "A"}')" "$(dig +short $domain | awk 'NR==1{print $1}')"
+    display_info "lb-01" "$(dig +short $domain | awk 'NR==1{print "A"}')" "$(dig +short $domain | awk 'NR==1{print $1}')"
+    display_info "web-01" "A" "$(dig +short web-01.$domain)"
+    display_info "web-02" "A" "$(dig +short web-02.$domain)"
+else
+    # If a subdomain is provided, display information for that subdomain
+    record_type=$(dig +short $subdomain.$domain | awk 'NR==1{print "A"}')
+    destination=$(dig +short $subdomain.$domain)
+    display_info "$subdomain" "$record_type" "$destination"
+fi
