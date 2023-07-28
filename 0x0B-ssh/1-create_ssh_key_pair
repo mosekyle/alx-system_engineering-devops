@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
 # A Bash script that creates an RSA key pair of bit size 4096 with passphrase
 # betty.
-ssh-keygen -b 4096 -f school -N betty
+
+KEY__NAME="school"
+
+KEY_BITS=4096
+ 
+PASSPHRASE="betty"
+
+ssh-keygen -t rsa -b $KEY_BITS -C "vagrant@ubuntu" -f $KEY_NAME -N $PASSPHRASE
+
+echo "Generating public/private rsa key pair."
+echo "Your identification has been saved in $KEY_NAME."
+echo "Your public key has been saved in $KEY_NAME.pub."
+
+
