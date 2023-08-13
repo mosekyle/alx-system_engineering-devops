@@ -13,7 +13,8 @@ For the purpose of this postmortem, I will be utilizing either a web stack debug
 ## Resources
 [Apiumhub](https://apiumhub.com/tech-blog-barcelona/software-development-project-postmortem/)
 
-<img src=./image.png width=50%>
+![image](https://github.com/mosekyle/alx-system_engineering-devops/assets/112090830/2c7513b6-83db-428d-8c26-e72a808cb894)
+
 
 # BooktifuL requests failure report
 Last week, an unfortunate incident unfolded when users of the BooktifuL platform encountered a frustrating obstacle. All requests made on the platform routes resulted in the dreaded 500 Error, rendering the services inaccessible. Regrettably, a significant majority of our valued users, precisely 90%, were impacted by this disruption. Upon thorough investigation, it was determined that the root cause of this predicament was the unexpected failure of our master server, web-01.
